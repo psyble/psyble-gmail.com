@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=400px,user-scalable=no">
+        <title>joystick test</title>
+        
+
+        
+        
+    <style>
+          html, body {
+            overflow-x: hidden;
+          }
+              body {
+                margin: 0px;
+                padding: 0px;
+              }
+              #joystick {
+                border: 1px solid #9C9898;
+              }
+    </style>
+
+    <script src="joy.js"></script>
+    
+    </head>
+
+
+    
+    <body>
+
+                    
+                
+    <div id="joyDiv" style="width:200px;height:200px;margin-bottom:20px;margin:50px;border-width:10px;border-color:red;"></div>
+              
+
+    
+            
+    <script type="text/javascript">
+      
+        // Create JoyStick object into the DIV 'joyDiv'
+        var joy = new JoyStick('joyDiv');
+      
+
+        var direzione;
+        var xydistance;
+        var x;
+        var y;
+        var oldx;
+        var oldy;
+
+        
+        setInterval(function(){
+
+            direzione = joy.GetDir();
+
+            oldx = x ; x = joy.GetX();
+
+            oldy = y ; y = joy.GetY();
+
+            xydistance = Math.floor(Math.sqrt(x*x+y*y));
+          
+          
+        }, 50);
+
+    </script>
+    
+    </body>
+</html>
